@@ -19,7 +19,7 @@ const TOS = () => {
           <Link to="/">
             <Button variant="ghost" className="mb-4 text-primary hover:text-primary/80">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Zurück zur Startseite
+              Back to Home
             </Button>
           </Link>
         </div>
