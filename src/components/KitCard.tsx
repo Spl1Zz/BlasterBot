@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ChevronDown, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,30 +20,30 @@ const KitCard = ({ title, command, imageSrc }: KitCardProps) => {
       await navigator.clipboard.writeText(command);
       setCopied(true);
       toast({
-        title: "In die Zwischenablage kopiert!",
-        description: `Befehl "${command}" wurde kopiert.`,
+        title: "Copied to clipboard!",
+        description: `Command "${command}" has been copied.`,
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
-        title: "Fehler beim Kopieren",
-        description: "Bitte kopiere den Befehl manuell.",
+        title: "Copy failed",
+        description: "Please copy the command manually.",
         variant: "destructive",
       });
     }
   };
 
   return (
-    <Card className="bg-card border-2 border-primary/30 shadow-glow hover:shadow-hover-glow transition-all duration-300 hover:border-primary/50 animate-scale-in">
+    <Card className="bg-card border-2 border-primary/30 shadow-gold hover:shadow-intense-gold transition-all duration-300 hover:border-primary/50 animate-scale-in">
       <CardContent className="p-0">
         <Button
           variant="ghost"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full justify-between p-4 h-auto bg-gaming-gradient text-primary-foreground font-bold text-left hover:bg-none rounded-b-none"
+          className="w-full justify-between p-4 h-auto bg-luxury-gradient text-primary-foreground font-bold text-left hover:bg-none rounded-b-none relative overflow-hidden before:absolute before:inset-0 before:bg-gold-shimmer before:opacity-0 hover:before:opacity-100 before:animate-shimmer"
         >
-          <span className="text-lg">{title}</span>
+          <span className="text-lg relative z-10">{title}</span>
           <ChevronDown 
-            className={`w-5 h-5 transition-transform duration-300 ${
+            className={`w-5 h-5 transition-transform duration-300 relative z-10 ${
               isOpen ? "rotate-180" : ""
             }`}
           />
@@ -66,12 +67,12 @@ const KitCard = ({ title, command, imageSrc }: KitCardProps) => {
             )}
             
             <div className="flex items-center justify-center gap-3">
-              <code className="bg-dark-surface text-cyber px-4 py-2 rounded-lg font-mono text-sm border border-primary/30">
+              <code className="bg-rich-black text-gold px-4 py-2 rounded-lg font-mono text-sm border border-primary/30 shadow-gold">
                 {command}
               </code>
               <Button
                 onClick={handleCopy}
-                variant="cyber"
+                variant="elegant"
                 size="sm"
                 className="relative group"
               >
@@ -80,7 +81,7 @@ const KitCard = ({ title, command, imageSrc }: KitCardProps) => {
                 ) : (
                   <Copy className="w-4 h-4" />
                 )}
-                <span className="sr-only">Befehl kopieren</span>
+                <span className="sr-only">Copy command</span>
               </Button>
             </div>
           </div>

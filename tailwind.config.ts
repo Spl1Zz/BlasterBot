@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,9 +53,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				'cyber': 'hsl(var(--cyber-glow))',
-				'neon-blue': 'hsl(var(--neon-blue))',
-				'dark-surface': 'hsl(var(--dark-surface))',
+				'gold': 'hsl(var(--gold-glow))',
+				'dark-gold': 'hsl(var(--dark-gold))',
+				'rich-black': 'hsl(var(--rich-black))',
+				'warm-gold': 'hsl(var(--warm-gold))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -88,12 +90,12 @@ export default {
 						height: '0'
 					}
 				},
-				'glow-pulse': {
+				'gold-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px hsl(185 100% 50% / 0.5)'
+						textShadow: '0 0 20px hsl(45 100% 60% / 0.8), 0 0 40px hsl(45 100% 60% / 0.4)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px hsl(185 100% 50% / 0.8), 0 0 60px hsl(185 100% 50% / 0.4)'
+						textShadow: '0 0 30px hsl(45 100% 60% / 1), 0 0 60px hsl(45 100% 60% / 0.6), 0 0 90px hsl(45 100% 60% / 0.3)'
 					}
 				},
 				'slide-in': {
@@ -115,21 +117,32 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
+				},
+				'shimmer': {
+					'0%': {
+						backgroundPosition: '-200% 0'
+					},
+					'100%': {
+						backgroundPosition: '200% 0'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'gold-pulse': 'gold-pulse 3s ease-in-out infinite',
 				'slide-in': 'slide-in 0.4s ease-out',
-				'scale-in': 'scale-in 0.3s ease-out'
+				'scale-in': 'scale-in 0.3s ease-out',
+				'shimmer': 'shimmer 3s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'gaming-gradient': 'var(--gaming-gradient)'
+				'luxury-gradient': 'var(--luxury-gradient)',
+				'dark-gradient': 'var(--dark-gradient)',
+				'gold-shimmer': 'linear-gradient(90deg, transparent, hsl(45 100% 60% / 0.4), transparent)'
 			},
 			boxShadow: {
-				'glow': 'var(--glow-shadow)',
-				'hover-glow': 'var(--hover-glow)'
+				'gold': 'var(--gold-shadow)',
+				'intense-gold': 'var(--intense-gold-glow)'
 			}
 		}
 	},

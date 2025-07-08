@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Package, MessageSquare, FileText } from "lucide-react";
@@ -40,7 +41,7 @@ const Navigation = () => {
               className="inline-block"
             >
               <Button 
-                variant="gaming" 
+                variant="luxury" 
                 size="xl"
                 className="group animate-slide-in"
               >
@@ -54,7 +55,7 @@ const Navigation = () => {
         return (
           <Link key={item.path} to={item.path} className="inline-block">
             <Button 
-              variant={isActive ? "cyber" : "gaming"} 
+              variant={isActive ? "elegant" : "luxury"} 
               size="xl"
               className="group animate-slide-in"
             >
