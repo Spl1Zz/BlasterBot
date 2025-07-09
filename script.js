@@ -7,7 +7,7 @@ const kits = [
     { title: "CPVP 2 Kit", command: "?kit cpvp2", image: "kits/cpvp2.png", category: "combat" },
     { title: "Bow and Shield PVP Kit", command: "?kit bow", image: "kits/bow.png", category: "combat" },
     { title: "Gear/Armor Kit", command: "?kit gear", image: "kits/gear.png", category: "combat" },
-    
+
     // Building & Construction Kits
     { title: "Glass Build Kit", command: "?kit glass", image: "kits/glass.png", category: "building", featured: true },
     { title: "Deepslate Build Kit", command: "?kit deepslate", image: "kits/deepslate.png", category: "building" },
@@ -19,7 +19,14 @@ const kits = [
     { title: "Oak House Build Kit", command: "?kit oakhouse", image: "kits/oakhouse.png", category: "building" },
     { title: "Build V1 Kit", command: "?kit build1", image: "kits/buildv1.png", category: "building" },
     { title: "Fortress Build Kit", command: "?kit fortress", image: "kits/fortress.png", category: "building" },
-    
+    { title: "Leaves Build Kit", command: "?kit leaves", image: "kits/leaves.png", category: "building" },
+    { title: "Mud Build Kit", command: "?kit mud", image: "kits/mud.png", category: "building" },
+    { title: "Prismarine Build Kit", command: "?kit prismarine", image: "kits/prismarine.png", category: "building" },
+    { title: "Sand Build Kit", command: "?kit sand", image: "kits/sand.png", category: "building" },
+    { title: "Stash Build Kit", command: "?kit stash", image: "kits/stash.png", category: "building" },
+    { title: "Stone Build Kit", command: "?kit stone", image: "kits/stone.png", category: "building" },
+    { title: "Terracotta Build Kit", command: "?kit terracotta", image: "kits/terracotta.png", category: "building" },
+
     // Utility & Tools Kits
     { title: "Dupe Kit", command: "?kit dupe", image: "kits/dupe.png", category: "utility", featured: true },
     { title: "Travel Kit", command: "?kit travel", image: "kits/travel.png", category: "utility" },
@@ -29,7 +36,10 @@ const kits = [
     { title: "Lighting Kit", command: "?kit light", image: "kits/light.png", category: "utility" },
     { title: "Beacon Kit", command: "?kit beacon", image: "kits/beacon.png", category: "utility" },
     { title: "Enchanting Kit", command: "?kit enchantment", image: "kits/enchantment.png", category: "utility" },
-    
+    { title: "Crops Kit", command: "?kit crops", image: "kits/crops.png", category: "utility" },
+    { title: "Food Kit", command: "?kit food", image: "kits/food.png", category: "utility" },
+    { title: "Rollercoaster Kit", command: "?kit rollercoaster", image: "kits/rollercoaster.png", category: "utility" },
+
     // Special & Unique Kits
     { title: "Bedtrap Kit", command: "?kit bedtrap", image: "kits/bedtrap.png", category: "special" },
     { title: "Grief Kit", command: "?kit grief", image: "kits/grief.png", category: "special" },
@@ -37,13 +47,25 @@ const kits = [
     { title: "Redstone Kit (Thanks to Manue_l)", command: "?kit redstone", image: "kits/redstone.png", category: "special" },
     { title: "Ores/Shiny Kit", command: "?kit shiny", image: "kits/shiny.png", category: "special" },
     { title: "Armor Trims Kit (Thanks to Al_Kapwn)", command: "?kit trims", image: "kits/trims.png", category: "special" },
+    { title: "Kit Creator Kit", command: "?kit kitcreator", image: "kits/creator.png", category: "special" },
+
+    // Biome & World Kits
+    { title: "Desert Biome Kit", command: "?kit desert", image: "kits/desert.png", category: "biome" },
+    { title: "Jungle Biome Kit", command: "?kit jungle", image: "kits/jungle.png", category: "biome" },
+    { title: "Crimson Biome Kit", command: "?kit crimson", image: "kits/crimson.png", category: "biome" },
+    { title: "Mesa Biome Kit", command: "?kit mesa", image: "kits/mesa.png", category: "biome" },
+    { title: "Mushroom Biome Kit", command: "?kit mushroom", image: "kits/mushroom.png", category: "biome" },
+    { title: "Plains Biome Kit", command: "?kit plains", image: "kits/plains.png", category: "biome" },
+    { title: "(Snowy/Icy) Taiga Biome Kit", command: "?kit taiga", image: "kits/taiga.png", category: "biome" },
+    { title: "Warped Biome Kit", command: "?kit warped", image: "kits/warped.png", category: "biome" },
 ];
 
 const kitCategories = {
     combat: "Combat & PVP",
-    building: "Building & Construction", 
+    building: "Building & Construction",
     utility: "Utility & Tools",
-    special: "Special & Unique"
+    special: "Special & Unique",
+    biome: "Biome & World",
 };
 
 let currentCategory = 'all';
@@ -55,10 +77,10 @@ function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
     });
-    
+
     // Show selected page
     document.getElementById(pageId + '-page').classList.add('active');
-    
+
     // Initialize kits page if showing kits
     if (pageId === 'kits') {
         initializeKitsPage();
@@ -74,23 +96,23 @@ function initializeKitsPage() {
 // Category filtering
 function setCategory(category) {
     currentCategory = category;
-    
+
     // Update button states
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('active');
         btn.classList.remove('btn-elegant');
         btn.classList.add('btn-luxury');
     });
-    
+
     const activeBtn = document.querySelector(`[data-category="${category}"]`);
     activeBtn.classList.add('active');
     activeBtn.classList.remove('btn-luxury');
     activeBtn.classList.add('btn-elegant');
-    
+
     // Show/hide featured section and category title
     const featuredSection = document.getElementById('featured-section');
     const categoryTitle = document.getElementById('category-title');
-    
+
     if (category === 'all' && !currentSearchTerm) {
         featuredSection.style.display = 'block';
         categoryTitle.style.display = 'none';
@@ -103,7 +125,7 @@ function setCategory(category) {
             categoryTitle.style.display = 'none';
         }
     }
-    
+
     renderKits();
 }
 
@@ -112,14 +134,14 @@ function filterKits() {
     const searchInput = document.getElementById('search-input');
     const clearBtn = document.getElementById('clear-search');
     currentSearchTerm = searchInput.value.toLowerCase();
-    
+
     // Show/hide clear button
     if (currentSearchTerm) {
         clearBtn.classList.remove('hidden');
     } else {
         clearBtn.classList.add('hidden');
     }
-    
+
     // Hide featured section if searching
     const featuredSection = document.getElementById('featured-section');
     if (currentSearchTerm) {
@@ -127,31 +149,31 @@ function filterKits() {
     } else if (currentCategory === 'all') {
         featuredSection.style.display = 'block';
     }
-    
+
     renderKits();
 }
 
 function clearSearch() {
     const searchInput = document.getElementById('search-input');
     const clearBtn = document.getElementById('clear-search');
-    
+
     searchInput.value = '';
     currentSearchTerm = '';
     clearBtn.classList.add('hidden');
-    
+
     // Show featured section if on all category
     if (currentCategory === 'all') {
         document.getElementById('featured-section').style.display = 'block';
     }
-    
+
     renderKits();
 }
 
 // Get filtered kits
 function getFilteredKits() {
     return kits.filter(kit => {
-        const matchesSearch = kit.title.toLowerCase().includes(currentSearchTerm) || 
-                             kit.command.toLowerCase().includes(currentSearchTerm);
+        const matchesSearch = kit.title.toLowerCase().includes(currentSearchTerm) ||
+            kit.command.toLowerCase().includes(currentSearchTerm);
         const matchesCategory = currentCategory === 'all' || kit.category === currentCategory;
         return matchesSearch && matchesCategory;
     });
@@ -161,7 +183,7 @@ function getFilteredKits() {
 function renderFeaturedKits() {
     const featuredKits = kits.filter(kit => kit.featured);
     const container = document.getElementById('featured-kits');
-    
+
     container.innerHTML = featuredKits.map((kit, index) => `
         <div style="animation-delay: ${index * 0.1}s" class="transform hover:scale-105 transition-transform duration-300">
             ${createKitCard(kit, true)}
@@ -174,14 +196,14 @@ function renderKits() {
     const filteredKits = getFilteredKits();
     const container = document.getElementById('kits-grid');
     const noResults = document.getElementById('no-results');
-    
+
     if (filteredKits.length === 0) {
         container.style.display = 'none';
         noResults.classList.remove('hidden');
     } else {
         container.style.display = 'grid';
         noResults.classList.add('hidden');
-        
+
         container.innerHTML = filteredKits.map((kit, index) => `
             <div style="animation-delay: ${index * 0.1}s" class="animate-scale-in">
                 ${createKitCard(kit)}
@@ -193,7 +215,7 @@ function renderKits() {
 // Create kit card HTML
 function createKitCard(kit, featured = false) {
     const kitId = kit.command.replace(/[^a-zA-Z0-9]/g, '');
-    
+
     return `
         <div class="kit-card ${featured ? 'featured' : ''}" data-kit="${kitId}">
             ${featured ? `
@@ -215,13 +237,12 @@ function createKitCard(kit, featured = false) {
             <div class="kit-card-content" id="content-${kitId}">
                 <div class="kit-card-inner">
                     ${kit.image ? `
-                        <div class="relative group">
+                        <div class="flex justify-center mb-4">
                             <img 
                                 src="${kit.image}" 
                                 alt="${kit.title}"
-                                class="kit-card-image"
+                                style="z-index: 2; position: relative; max-width: 400px; width: 100%; height: auto;"
                             >
-                            <div class="absolute inset-0 bg-luxury-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
                         </div>
                     ` : ''}
                     
@@ -246,11 +267,12 @@ function createKitCard(kit, featured = false) {
     `;
 }
 
+
 // Toggle kit card
 function toggleKitCard(kitId) {
     const content = document.getElementById(`content-${kitId}`);
     const chevron = document.getElementById(`chevron-${kitId}`);
-    
+
     if (content.classList.contains('open')) {
         content.classList.remove('open');
         chevron.classList.remove('rotated');
@@ -264,7 +286,7 @@ function toggleKitCard(kitId) {
 async function copyCommand(command, button) {
     try {
         await navigator.clipboard.writeText(command);
-        
+
         // Update button text
         const originalHtml = button.innerHTML;
         button.innerHTML = `
@@ -273,10 +295,10 @@ async function copyCommand(command, button) {
             </svg>
             Copied!
         `;
-        
+
         // Show toast-like notification
         showToast('Copied to clipboard!', `Command "${command}" has been copied.`);
-        
+
         // Reset button after 2 seconds
         setTimeout(() => {
             button.innerHTML = originalHtml;
@@ -293,13 +315,13 @@ function showToast(title, description, type = 'success') {
     if (existingToast) {
         existingToast.remove();
     }
-    
+
     // Create toast
     const toast = document.createElement('div');
     toast.id = 'toast';
     toast.className = `fixed top-4 right-4 bg-card border-2 border-primary-30 rounded-lg p-4 shadow-intense-gold z-50 animate-slide-in`;
     toast.style.maxWidth = '420px';
-    
+
     toast.innerHTML = `
         <div class="flex items-start">
             <div class="flex-1">
@@ -314,9 +336,9 @@ function showToast(title, description, type = 'success') {
             </button>
         </div>
     `;
-    
+
     document.body.appendChild(toast);
-    
+
     // Auto remove after 4 seconds
     setTimeout(() => {
         if (toast.parentElement) {
@@ -326,10 +348,10 @@ function showToast(title, description, type = 'success') {
 }
 
 // Initialize the app
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Show home page by default
     showPage('home');
-    
+
     // Add event listener for search input
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
