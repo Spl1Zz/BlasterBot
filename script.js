@@ -9,7 +9,7 @@ const kits = [
     { title: "Gear/Armor Kit", command: "?kit gear", image: "kits/gear.png", category: "combat" },
 
     // Building & Construction Kits
-    { title: "Glass Build Kit", command: "?kit glass", image: "kits/glass.png", category: "building", featured: true },
+    { title: "Glass Build Kit", command: "?kit glass", image: "kits/glass.png", category: "building",},
     { title: "Deepslate Build Kit", command: "?kit deepslate", image: "kits/deepslate.png", category: "building" },
     { title: "Wool Build Kit", command: "?kit wool", image: "kits/wool.png", category: "building" },
     { title: "Concrete Build Kit", command: "?kit concrete", image: "kits/concrete.png", category: "building" },
@@ -27,7 +27,7 @@ const kits = [
     { title: "Stone Build Kit", command: "?kit stone", image: "kits/stone.png", category: "building" },
     { title: "Terracotta Build Kit", command: "?kit terracotta", image: "kits/terracotta.png", category: "building" },
     { title: "Mapart Kit", command: "?kit mapart", image: "kits/mapart.png", category: "utility" },
-    { title: "Ore Kit", command: "?kit ores", image: "kits/ores.png", category: "utility" },
+    { title: "Ore Kit", command: "?kit ores", image: "kits/ores.png", category: "utility", featured: true },
 
     // Utility & Tools Kits
     { title: "Dupe Kit", command: "?kit dupe", image: "kits/dupe.png", category: "utility", featured: true },
