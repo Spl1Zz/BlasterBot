@@ -26,8 +26,8 @@ const kits = [
     { title: "Stash Build Kit", command: "?kit stash", image: "kits/stash.png", category: "building" },
     { title: "Stone Build Kit", command: "?kit stone", image: "kits/stone.png", category: "building" },
     { title: "Terracotta Build Kit", command: "?kit terracotta", image: "kits/terracotta.png", category: "building" },
-    { title: "Mapart Kit", command: "?kit mapart", image: "kits/mapart.png", category: "utility" },
-    { title: "Ore Kit", command: "?kit ores", image: "kits/ores.png", category: "utility", featured: true },
+    { title: "Mapart Kit", command: "?kit mapart", image: "kits/mapart.png", category: "building" },
+    { title: "Ore Kit", command: "?kit ores", image: "kits/ores.png", category: "building", featured: true },
 
     // Utility & Tools Kits
     { title: "Dupe Kit", command: "?kit dupe", image: "kits/dupe.png", category: "utility", featured: true },
