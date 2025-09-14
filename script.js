@@ -26,6 +26,8 @@ const kits = [
     { title: "Stash Build Kit", command: "?kit stash", image: "kits/stash.png", category: "building" },
     { title: "Stone Build Kit", command: "?kit stone", image: "kits/stone.png", category: "building" },
     { title: "Terracotta Build Kit", command: "?kit terracotta", image: "kits/terracotta.png", category: "building" },
+    { title: "Mapart Kit", command: "?kit mapart", image: "kits/mapart.png", category: "utility" },
+    { title: "Ore Kit", command: "?kit ores", image: "kits/ores.png", category: "utility" },
 
     // Utility & Tools Kits
     { title: "Dupe Kit", command: "?kit dupe", image: "kits/dupe.png", category: "utility", featured: true },
@@ -39,6 +41,7 @@ const kits = [
     { title: "Crops Kit", command: "?kit crops", image: "kits/crops.png", category: "utility" },
     { title: "Food Kit", command: "?kit food", image: "kits/food.png", category: "utility" },
     { title: "Rollercoaster Kit", command: "?kit rollercoaster", image: "kits/rollercoaster.png", category: "utility" },
+    { title: "Enchantments Kit", command: "?kit enchants", image: "kits/enchants.png", category: "utility" },
 
     // Special & Unique Kits
     { title: "Bedtrap Kit", command: "?kit bedtrap", image: "kits/bedtrap.png", category: "special" },
